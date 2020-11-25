@@ -27,20 +27,90 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 
 ?>
 <!DOCTYPE html>
+<html lang="en"><!-- Basic -->
 
-<html>
 
 <head>
-    <title>SIGN UP page</title>
-</head>
-<h2>if you want to sign in click here  </h2>
-<a href="../Controller/signin.php"> SIGN IN</a><br>
-<body>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+     <!-- Site Metas -->
+    <title>Dar Mima Inscription</title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-       <h2>Sign Up</h2>
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="../Views/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../Views/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../Views/css/bootstrap.min.css">    
+	<!-- Site CSS -->
+    <link rel="stylesheet" href="../Views/css/style.css">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../Views/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../Views/css/custom.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body background="../Views/images/fond.jpg" >
+	<!-- Start header -->
     
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="index.php">
+					<img src="../Views/images/logob.png"  height="80" width="250">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-rs-food">
+					<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link" href="../Controller/connexion.php">Sign Up</a></li>
+					<li class="nav-item"><a class="nav-link" href="../Controller/signin.php">Sign In</a></li>
+                      <li class="nav-item"><a class="nav-link" href="../Views/index.php">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="../Views/menu.php">Menu</a></li>
+						<li class="nav-item"><a class="nav-link" href="../Views/about.php">About</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="../Views/reservation.php">Reservation</a>
+								<a class="dropdown-item" href="../Views/stuff.php">Stuff</a>							</div>
+						</li>
+						
+						<li class="nav-item"><a class="nav-link" href="../Views/contact.php">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
+	
+
+
+      
+
     <form action="connexion.php" method="POST">
-    <table border="1" width="50%">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <table align="center" border="1" width="50%" bgcolor="bleue" bordercolor="black">
+    
     <td rowspan="10">Informations personnelles</td>
     <tr>
             
@@ -145,13 +215,15 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 
             <td><input type="submit" name="submit" value="S'inscrire" onClick="validation()"></td>
         </tr>
-    </table>
+    </table>    <br>
+    <br>
+
 </form>
-<div id="error">
+<!-- <div id="error">
             
             <a href="../Views/afficher.php"> afficher ma base de donnees</a><br>
            
-    <?php echo $error; ?>
+    <?php// echo $error; ?>
             </div>
             <form action="supprimerutilisateur.php" method="POST">
             <table border="1" align="center">
@@ -176,7 +248,7 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
                         </td>
         </tr>
             </table>
-                </form>
+                </form>-->
             
     <script>
         function majus_nom() {
