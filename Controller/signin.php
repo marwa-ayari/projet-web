@@ -118,14 +118,12 @@ echo("</table>");}
 			<div class="login-wrap">
             Login:
             <div class="input-group">
-			<span class="input-group-addon"><i></i></span>
             <input type="text" name="login" id="login" onfocusout="vide_log()" Required>
             <label id="elementlog" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label> 
 
     </div>
      mot de passe:
     <div class="input-group">
-	<span class="input-group-addon"><i></i></span>
     <input type="password" id="pass" name="pass"  onfocusout="vide_pass()"Required>
     <label id="elementpass" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label> 
     </div>
@@ -136,29 +134,6 @@ echo("</table>");}
 
 </form>
 </div>
-   <!-- <form action="signin.php" method="POST"><br><br><br><br><br><br><br><br><br>
-    <table align="center" border="1" width="30%"bordercolor="black" bgcolor="white">
-    
-    
-        <tr>
-            <td>Login:</td>
-            <td><input type="text" name="login" id="login" onfocusout="vide_log()" Required>
-            <label id="elementlog" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label> </td>
-
-        </tr>
-        <tr>
-            <td>mot de passe:</td>
-            <td><input type="password" id="pass" name="pass"  onfocusout="vide_pass()"Required>
-            <label id="elementpass" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label> </td>
-
-        </tr>
-
-        <tr>
-        <td></td>
-            <td><input type="submit" name="submit" value="Se Connecter" onClick="validation()"></td>
-        </tr>
-    </table>
-</form>-->
 <div id="error">
             
             <a href="../Views/afficher.php"> afficher ma base de donnees</a><br>

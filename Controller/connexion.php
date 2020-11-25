@@ -106,7 +106,6 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 	<div class="login-wrap">
             CIN:
             <div class="input-group">
-			<span class="input-group-addon"><i></i></span>
             <input type="number" id="CIN" name="CIN" placeholder="CIN" minlength="8" maxlength="8" onfocusout="cinfc()" Required>
             <label id="elementcin" name="erreur" style="color: red;display: none;">Le CIN est invalide</label> 
              </div>
@@ -114,21 +113,18 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 
             Nom:
             <div class="input-group">
-            <span class="input-group-addon"><i></i></span>
-            <input type="text" id="nom" name="nom" onfocusout="majus_nom()" Required> 
+            <input type="text" id="nom" name="nom" placeholder="nom" onfocusout="majus_nom()" Required> 
             <label id="element" name="erreur" style="color: red;display: none;">Le nom doit commencer par une majuscule </label>
             </div>
 
             Prenom:
             <div class="input-group">
-	        <span class="input-group-addon"><i></i></span>
-            <input type="text" id="prenom" name="prenom" onfocusout="majus_prenom()" Required> 
+            <input type="text" id="prenom" name="prenom" placeholder="prenom" onfocusout="majus_prenom()" Required> 
             <label id="element1" name="erreur" style="color: red;display: none;">Le prenom doit commencer par une majuscule </label>
             </div>
 
             Date de naissance:
             <div class="input-group">
-            <span class="input-group-addon"><i></i></span>
             <input type="date" id="dateNais" name="dateNais" onfocusout="age()" Required>
             <label id="elementdate" name="erreur"style="color: red;display: none;">Moin de 18 ans </label>
             </div>
@@ -136,7 +132,6 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 
             Sexe:
             <div class="input-group">
-            <span class="input-group-addon"><i></i></span>  
                 <label>
                     <input type="radio" name="genre" value="f" checked>
                     Femme
@@ -149,14 +144,12 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 
             Adresse mail:
             <div class="input-group">
-            <span class="input-group-addon"><i></i></span>
             <input type="email" name="email" id="email" pattern=".+@gmail.com" placeholder="Enter mail"  onfocusout="ad_email()" Required>
             <label id="elementemail" name="erreur" style="color: red;display: none;">L'adresse email est invalide,elle doit se terminer par "@gmail.com"  </label>
             </div>
 
             Telephone:
             <div class="input-group">
-	        <span class="input-group-addon"><i></i></span>
             <input type="number" id="telephone" name="telephone" placeholder="24123856" minlength="8" maxlength="8" onfocusout="telephonefc()" Required>
             <label id="element2" name="erreur" style="color: red;display: none;">Le numéro de
                     téléphone est erroné </label> 
@@ -164,7 +157,6 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 
             Type de compte:
             <div class="input-group">
-	        <span class="input-group-addon"><i></i></span>
                 <div>
                     <select id="profession" onfocusout="prof()" Required>
                         <option value="select">select</option>
@@ -179,28 +171,23 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 
             Adresse:
             <div class="input-group">
-	        <span class="input-group-addon"><i></i></span>
-            <textarea name="adresse" id="adresse" cols="30" rows="10"  Required></textarea>
+            <textarea name="adresse" id="adresse" cols="30" rows="2"  Required></textarea>
             </div>
 
             Login:
             <div class="input-group">
-            <span class="input-group-addon"><i></i></span>
-            <input type="text" name="login" id="login" onfocusout="vide_unique_log()"Required> 
+            <input type="text" name="login" id="login" placeholder="suzanne12" onfocusout="vide_unique_log()"Required> 
             <label id="elementlog" name="erreur" style="color: red;display: none;">Le login est obligatoire et doit etre unique</label>
             </div>
 
             mot de passe:
             <div class="input-group">
-	        <span class="input-group-addon"><i></i></span>
-            <input type="password" id="pass1" name="pass" onfocusout="passf()" Required> 
+            <input type="password" id="pass1" name="pass" placeholder="*****" onfocusout="passf()" Required> 
             </div>
             
             confirmer mot de passe:
             <div class="input-group">
-            <span class="input-group-addon"><i></i></span>
-            
-            <input type="password" id="pass2" onfocusout="passf()" Required> <label id="elementpass" name="erreur"
+            <input type="password" id="pass2" placeholder="*****" onfocusout="passf()" Required> <label id="elementpass" name="erreur"
                     style="color: red;display: none;">Veuillez verifier votre mot de passe </label>
             </div>
 
