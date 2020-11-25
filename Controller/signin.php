@@ -48,12 +48,14 @@ echo("</table>");}
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
      <!-- Site Metas -->
-    <title>Dar Mima Inscription</title>  
+    <title>Dar Mima Connexion</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Site Icons -->
+	<link href="../Views/css/bootstrap-theme.css" rel="stylesheet">
+	<!-- Custom2 styles -->
+	<link href="../Views/css/style2.css" rel="stylesheet">
+    <!-- Site2 Icons -->
     <link rel="shortcut icon" href="../Views/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="../Views/images/apple-touch-icon.png">
 
@@ -65,7 +67,8 @@ echo("</table>");}
     <link rel="stylesheet" href="../Views/css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../Views/css/custom.css">
-
+    <!-- Login CSS -->
+    <link rel="stylesheet" href="../Views/css/logintheme.css">    
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -73,7 +76,7 @@ echo("</table>");}
 
 </head>
 
-<body background="../Views/images/fond.jpg" >
+<body class="login-img3-body">
 	<!-- Start header -->
     
 	<header class="top-navbar">
@@ -87,8 +90,8 @@ echo("</table>");}
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="../Controller/connexion.php">Sign Up</a></li>
-					<li class="nav-item"><a class="nav-link" href="../Controller/signin.php">Sign In</a></li>
+					<li class="nav-item"><a class="nav-link" href="../Controller/connexion.php">Sign Up</a></li>
+					<li class="nav-item active"><a class="nav-link" href="../Controller/signin.php">Sign In</a></li>
                       <li class="nav-item"><a class="nav-link" href="../Views/index.php">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="../Views/menu.php">Menu</a></li>
 						<li class="nav-item"><a class="nav-link" href="../Views/about.php">About</a></li>
@@ -106,10 +109,34 @@ echo("</table>");}
 		</nav>
 	</header>
 	<!-- End header -->
-	
+	<div class="container">
 
+    <form action="signin.php" method="POST">
+    
+    
+    <div class="login-form">
+			<div class="login-wrap">
+            Login:
+            <div class="input-group">
+			<span class="input-group-addon"><i></i></span>
+            <input type="text" name="login" id="login" onfocusout="vide_log()" Required>
+            <label id="elementlog" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label> 
 
-    <form action="signin.php" method="POST"><br><br><br><br><br><br><br><br><br>
+    </div>
+     mot de passe:
+    <div class="input-group">
+	<span class="input-group-addon"><i></i></span>
+    <input type="password" id="pass" name="pass"  onfocusout="vide_pass()"Required>
+    <label id="elementpass" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label> 
+    </div>
+    
+     <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="Se Connecter" onClick="validation()">
+     </div>
+    </div>
+
+</form>
+</div>
+   <!-- <form action="signin.php" method="POST"><br><br><br><br><br><br><br><br><br>
     <table align="center" border="1" width="30%"bordercolor="black" bgcolor="white">
     
     
@@ -131,7 +158,7 @@ echo("</table>");}
             <td><input type="submit" name="submit" value="Se Connecter" onClick="validation()"></td>
         </tr>
     </table>
-</form>
+</form>-->
 <div id="error">
             
             <a href="../Views/afficher.php"> afficher ma base de donnees</a><br>
