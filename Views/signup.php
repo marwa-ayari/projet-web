@@ -79,8 +79,8 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="../Controller/connexion.php">Sign Up</a></li>
-					<li class="nav-item"><a class="nav-link" href="../Controller/signin.php">Sign In</a></li>
+					<li class="nav-item active"><a class="nav-link" href="../Views/signup.php">Sign Up</a></li>
+					<li class="nav-item"><a class="nav-link" href="../Views/signin.php">Sign In</a></li>
                       <li class="nav-item"><a class="nav-link" href="../Views/index.php">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="../Views/menu.php">Menu</a></li>
 						<li class="nav-item"><a class="nav-link" href="../Views/about.php">About</a></li>
@@ -126,7 +126,7 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
             Date de naissance:
             <div class="input-group">
             <input type="date" id="dateNais" name="dateNais" onfocusout="age()" Required>
-            <label id="elementdate" name="erreur"style="color: red;display: none;">Moin de 18 ans </label>
+            <label id="elementdate" name="erreur"style="color: red;display: none;">Cette date n'existe pas encore </label>
             </div>
        
 
@@ -145,7 +145,7 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
             Adresse mail:
             <div class="input-group">
             <input type="email" name="email" id="email" pattern=".+@gmail.com" placeholder="Enter mail"  onfocusout="ad_email()" Required>
-            <label id="elementemail" name="erreur" style="color: red;display: none;">L'adresse email est invalide,elle doit se terminer par "@gmail.com"  </label>
+            <label id="elementemail" name="erreur" style="color: red;display: none;">L'adresse email est invalide  </label>
             </div>
 
             Telephone:
@@ -242,16 +242,16 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
             if ((ch === "") || (ch.charCodeAt(0) < 65) || (ch.charCodeAt(0) > 91)) { element.style.display = "block"; } else { element.style.display = "none"; }
         }
         function ad_email() {
-            var ch = document.getElementById("email").value;
+            var expressionReguliere = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
             var element = document.getElementById("elementemail");
-            if ((ch === "") || (ch.slice(ch.length-10,10)=!"@gmail.com")) { element.style.display = "block"; } else { element.style.display = "none"; }
+            if (expressionReguliere.test(document.getElementById("email").value)) { element.style.display = "none"; } else { element.style.display = "block"; }
         }
         function age() {
             var today = new Date();
             var element = document.getElementById("elementdate");
             var dateNais = document.querySelector("#dateNais").value;
             dateNais = new Date(dateNais);
-            if ((today.getFullYear() - dateNais.getFullYear()) < 18) { element.style.display = "block"; } else { element.style.display = "none"; }
+            if ((today.getFullYear() - dateNais.getFullYear()) < 0) { element.style.display = "block"; } else { element.style.display = "none"; }
         }
         function telephonefc() {
             var element = document.getElementById("element2");

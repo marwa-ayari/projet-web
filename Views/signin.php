@@ -31,8 +31,6 @@
 echo("</table>");}
 
 
- 
-
 
 
 ?>
@@ -90,8 +88,8 @@ echo("</table>");}
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="../Controller/connexion.php">Sign Up</a></li>
-					<li class="nav-item active"><a class="nav-link" href="../Controller/signin.php">Sign In</a></li>
+					<li class="nav-item"><a class="nav-link" href="../Views/signup.php">Sign Up</a></li>
+					<li class="nav-item active"><a class="nav-link" href="../Views/signin.php">Sign In</a></li>
                       <li class="nav-item"><a class="nav-link" href="../Views/index.php">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="../Views/menu.php">Menu</a></li>
 						<li class="nav-item"><a class="nav-link" href="../Views/about.php">About</a></li>
@@ -140,7 +138,7 @@ echo("</table>");}
            
     <?php echo $error; ?>
             </div>
-            <form action="supprimerutilisateur.php" method="POST">
+         <!--   <form action="supprimerutilisateur.php" method="POST">
             <table border="1" align="center"bordercolor="black" bgcolor="white">
             <tr>
                 <td><label for="Supprimer">Supprimer selon id:
@@ -163,10 +161,10 @@ echo("</table>");}
                         </td>
         </tr>
             </table>
-                </form>
+                </form> -->
             
 
-    </form>
+  
 </body>
 <script>
         function vide_log() {
@@ -182,10 +180,6 @@ echo("</table>");}
     function validation(){
         vide_log();
         vide_pass();
-        var error1 = document.getElementById("elementlog");
-        var error2 = document.getElementById("elementpass");
-        if ((error2.style.display == "none") &&(error1.style.display == "none")) {alert("Vous etes connecté");}
-        else{alert("votre compte n'existe pas,veuillez corriger votre login et mot de passe");}
     }
     </script>
 

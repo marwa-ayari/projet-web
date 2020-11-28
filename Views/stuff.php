@@ -50,8 +50,8 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">						
-					<li class="nav-item"><a class="nav-link" href="../Controller/connexion.php">Sign Up</a></li>
-					<li class="nav-item"><a class="nav-link" href="../Controller/signin.php">Sign In</a></li>
+					<li class="nav-item"><a class="nav-link" href="../Views/signup.php">Sign Up</a></li>
+					<li class="nav-item"><a class="nav-link" href="../Views/signin.php">Sign In</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
 						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
