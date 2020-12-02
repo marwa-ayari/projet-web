@@ -22,7 +22,7 @@
          
      );
 $utilisateurC->ajouterUtilisateur($utilisateur);
-    }else {echo("login ydvdh");}
+    }else {echo('<script> alert("Ce compte login existe deja"); </script>');}
  }
 
 
