@@ -7,6 +7,7 @@
     $login=$_POST["login"];
     $password=$_POST["pass"];
     $utiC=new UtilisateurC();
+
     $pdo=config::getConnexion();
         $query= $pdo ->prepare("select * from utilisateur where login= '$login' and password= '$password'");
         $query->execute(['login' => $login]);
@@ -28,8 +29,17 @@
 
      echo("</tr>");
  }
-echo("</table>");}
+echo("</table>");
 
+//demarrer la session
+session_start ();
+// on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
+$_SESSION['login'] = $_POST['login'];
+$_SESSION['password'] = $_POST['password'];
+
+// on redirige notre visiteur vers une page de notre section membre
+header ('location: ../Views/index.php');
+}
 
 
 
@@ -137,34 +147,9 @@ echo("</table>");}
             <a href="../Views/afficher.php"> afficher ma base de donnees</a><br>
            
     <?php echo $error; ?>
-            </div>
-         <!--   <form action="supprimerutilisateur.php" method="POST">
-            <table border="1" align="center"bordercolor="black" bgcolor="white">
-            <tr>
-                <td><label for="Supprimer">Supprimer selon id:
-                            </label></td>
-                            <td><input type="text" name="id" id="id" ></td>
-                            <td>
-                            <input type="submit" value="Supprimer" > 
-                        </td>
-        </tr>
-            </table>
-                </form>
-                <form action="modifierutilisateur.php" method="GET">
-            <table border="1" align="center"bordercolor="black" bgcolor="white">
-            <tr>
-                <td><label for="Modifier">Modifier selon id:
-                            </label></td>
-                            <td><input type="text" name="id" id="id" ></td>
-                            <td>
-                            <input type="submit" value="Modifier" > 
-                        </td>
-        </tr>
-            </table>
-                </form> -->
-            
 
-  
+</div>
+            
 </body>
 <script>
         function vide_log() {

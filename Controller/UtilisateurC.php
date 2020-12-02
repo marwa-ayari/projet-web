@@ -39,6 +39,12 @@ include_once "config.php" ;
                 echo ("</td>");echo ("<td>");
                 echo "Password";
                 echo ("</td>");
+                echo ("<td>");
+                echo "MODIFIER";
+                echo ("</td>");
+                echo ("<td>");
+                echo "SUPPRIMER";
+                echo ("</td>");
                 echo "</tr>";
 
             foreach($result as $rows)
@@ -66,10 +72,34 @@ include_once "config.php" ;
                 echo ("</td>");echo ("<td>");
                 echo $rows['password'];
                 echo ("</td>");
+                echo ("<td>");
+                echo("<a href=../Controller/modifierutilisateur.php?id=".$rows['id']." >Modifier</a>");
+                echo ("</td>");
+                echo ("<td>");
+                echo("<a href=../Controller/supprimerutilisateur.php?id=".$rows['id']." >Supprimer</a>");
+                echo ("</td>");
             echo("</tr>");
         }
     echo("</table> ");
         }
+
+        public  function unique_log($ch) {
+               $utiC=new UtilisateurC();
+               $pdo=config::getConnexion();
+                   $query= $pdo ->prepare("select * from utilisateur where login= '$ch' ");
+                   $query->execute(['login' => $ch]);
+                    $result = $query->fetchAll();
+                    foreach($result as $rows)
+                    {
+                    if($rows['login'] == $ch) {
+                        return true;
+                    }
+                     else { return false; }
+                    } 
+                
+            
+        } 
+
         public function ajouterUtilisateur($Utilisateur) {
     $sql="insert into utilisateur(CIN,nom,prenom,telephone,email,login,password) values(:CIN,:nom,:prenom,:telephone,:email, :login, :password)";
     $db=config::getConnexion();
@@ -116,4 +146,5 @@ include_once "config.php" ;
                             'id' => $id
                         ]); 
             }
+        
     }

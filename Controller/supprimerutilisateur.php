@@ -4,9 +4,9 @@
  $error = "";
  $utilisateurC = new UtilisateurC();
 
- if (isset($_POST["id"])) 
+ if (isset($_GET["id"])) 
  {
-    $utilisateurC->supprimerutilisateur($_POST["id"]);
+    $utilisateurC->supprimerutilisateur($_GET["id"]);
      
 
  }
@@ -14,5 +14,5 @@
      $error = "Missing id";
      }
 
-     header("location:../Views/afficher.php"); 
+     header("location:../Back/examples/tables.php"); 
 ?>

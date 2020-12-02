@@ -7,6 +7,8 @@
 
  if (isset($_POST["CIN"]) &&isset($_POST["nom"])&& isset($_POST["prenom"]) &&isset($_POST["telephone"]) && isset($_POST["dateNais"]) && isset($_POST["email"]) && isset($_POST["adresse"]) && isset($_POST["login"]) && isset($_POST["pass"])) 
  {
+    if($utilisateurC->unique_log($_POST["login"])==false)
+    {
      $utilisateur = new Utilisateur(
         $_POST["CIN"],
          $_POST['nom'],
@@ -20,7 +22,7 @@
          
      );
 $utilisateurC->ajouterUtilisateur($utilisateur);
-
+    }else {echo("login ydvdh");}
  }
 
 
@@ -101,7 +103,7 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 	
 
 	<div class="container">
-    <form action="connexion.php" method="POST">
+    <form action="signup.php" method="POST">
     <div class="login-form">
 	<div class="login-wrap">
             CIN:
@@ -199,37 +201,7 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
 
 </form>
 </div>
-<!-- <div id="error">
-            
-            <a href="../Views/afficher.php"> afficher ma base de donnees</a><br>
-           
-    <?php// echo $error; ?>
-            </div>
-            <form action="supprimerutilisateur.php" method="POST">
-            <table border="1" align="center">
-            <tr>
-                <td><label for="Supprimer">Supprimer selon id:
-                            </label></td>
-                            <td><input type="text" name="id" id="id" ></td>
-                            <td>
-                            <input type="submit" value="Supprimer" > 
-                        </td>
-        </tr>
-            </table>
-                </form>
-                <form action="modifierutilisateur.php" method="GET">
-            <table border="1" align="center">
-            <tr>
-                <td><label for="Modifier">Modifier selon id:
-                            </label></td>
-                            <td><input type="text" name="id" id="id" ></td>
-                            <td>
-                            <input type="submit" value="Modifier" > 
-                        </td>
-        </tr>
-            </table>
-                </form>-->
-            
+
     <script>
         function majus_nom() {
             var ch = document.getElementById("nom").value;
@@ -277,19 +249,7 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
             var ch = document.getElementById("login").value;
             var element = document.getElementById("elementlog");
             if (ch === "") { element.style.display = "block"; } else { element.style.display = "none"; }
-            <?php /*
-             $ch =echo(ch);
-               $utiC=new UtilisateurC();
-               $pdo=config::getConnexion();
-                   $query= $pdo ->prepare("select * from utilisateur where login= '$ch' ");
-                   $query->execute(['login' => $ch]);
-                    $result = $query->fetchAll();
-                    foreach($result as $rows)
-                    {
-                    if($rows['login'] == ch) {element.style.display = "block";} else { element.style.display = "none"; }
-                    } 
-                */
-                ?>
+
         } 
         function validation() {
             majus_nom();majus_prenom();ad_email();age();telephonefc();cinfc();prof();passf();vide_unique_log();
@@ -306,7 +266,7 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
             var ch1 = document.getElementById("prenom").value;
 
             if ((error0.style.display == "none") &&(error1.style.display == "none") && (error2.style.display == "none") && (error4.style.display == "none") && (error3.style.display == "none") && (error5.style.display == "none")  && (error6.style.display == "none")&& (error7.style.display == "none")&& (error8.style.display == "none"))
-                alert("Bienvenue" + ch + ch1);else alert("Votre formulaire est mal rempli");
+                alert("Formulaire bien rempli");else alert("Votre formulaire est mal rempli");
         }
     </script>
     </form>
