@@ -6,6 +6,18 @@ if (empty($_SESSION['e'])) {
 	// Si inexistante ou nulle, on redirige vers le formulaire de login
 	header('Location: signin.php');
 }
+
+/*$dest = "marwa.ayari97@gmail.com";
+  $sujet = "Email de test";
+  $corp = "Salut ceci est un email de test envoyer par un script PHP";
+  $headers = "From: marwa.ayari97@gmail.com";
+  if (mail($dest, $sujet, $corp, $headers)) {
+    echo "Email envoyé avec succès à $dest ...";
+  } else {
+    echo "Échec de l'envoi de l'email...";
+  }
+   // echo ('<script> alert("Nous vous avons envoyer un mail"); </script>');*/
+
 ?>
 
 <!DOCTYPE html>
@@ -47,13 +59,7 @@ if (empty($_SESSION['e'])) {
 
 <body>
 
-	<!-- bouton deconnexion et bienvenue utilisateur session -->
 
-	<?php
-	// Il est bien connecté
-	//echo 'Bienvenue Utilisateur ', $_SESSION['e'];
-	echo ('<script> alert("Bienvenue, voici notre page d accueil"); </script>');
-	?>
 
 	<!-- Start header -->
 	<header class="top-navbar">
@@ -110,6 +116,7 @@ if (empty($_SESSION['e'])) {
 					<div class="row">
 						<div class="col-md-12">
 							<h1 class="m-b-20"><strong>Welcome To <br> Dar Mimaa</strong></h1>
+
 							<p class="m-b-40">See how your users experience your website in realtime or view <br>
 								trends to see any changes in performance over time.</p>
 							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
@@ -147,6 +154,12 @@ if (empty($_SESSION['e'])) {
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
 					<div class="inner-column">
+						<h1> <?php
+								// Il est bien connecté
+								echo 'Bienvenue ', $_SESSION['e'];
+								echo ('<script> alert("Bienvenue, voici notre page d accueil"); </script>');
+								?>
+						</h1>
 						<h1>Welcome To Dar mimaa</h1>
 						<h4>Little Story</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>

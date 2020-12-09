@@ -21,6 +21,33 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 
         );
         $utilisateurC->ajouterUtilisateur($utilisateur);
+        //envoi d'un mail d'inscription valide
+        
+
+       /* function sanitize_my_email($field) {
+            $field = filter_var($field, FILTER_SANITIZE_EMAIL);
+            if (filter_var($field, FILTER_VALIDATE_EMAIL )) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $to_email =$_POST['email'];
+        $subject = 'Testing PHP Mail';
+        $message = 'This mail is sent using the PHP mail Inscription valide';
+        $headers = ' ';
+        //check if the email address is invalid $secure_check
+        $secure_check = sanitize_my_email($to_email);
+        if ($secure_check == false) {
+            echo "adresse email invalide";
+        } else { //send email 
+            mail($to_email, $subject, $message, $headers);
+            echo ('<script> alert("Nous vous avons envoyer un mail"); </script>');
+        }
+
+*/
+
         header('Location:../Views/signin.php');
     } else {
         echo ('<script> alert("Ce compte login existe deja"); </script>');

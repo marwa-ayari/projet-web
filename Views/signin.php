@@ -17,7 +17,11 @@ if (
         $_SESSION['e'] = $_POST["login"]; // on stocke dans le tableau une colonne ayant comme nom "e",
         //  avec l'email à l'intérieur
         if ($message != 'le login ou le mot de passe est incorrect') {
+
+        
+
             header('Location:../Views/index.php');
+ 
         } else {
             $message = 'le login ou le mot de passe est incorrect';
         }
