@@ -11,7 +11,7 @@
         private ?string $login=null;
         private ?string $password=null;
 
-        public function __construct(string $CIN, string $nom, string $prenom, string $telephone, string $dateNais, string $email, string $adresse, string $login, string $pass) {
+        public function __construct(string $CIN, string $nom, string $prenom, string $telephone, string $dateNais, string $email, string $adresse, string $login, string $pass, string $role) {
             $this->CIN= $CIN;
             $this->nom= $nom;
             $this->prenom= $prenom;
@@ -21,6 +21,7 @@
             $this->adresse= $adresse;
             $this->login= $login;
             $this->password= $pass;
+            $this->role= $role;
         }
         public function getId() {
             return $this->id;
@@ -92,5 +93,12 @@
 
         public function setPassword (string $password) {
             $this->password = $password;
+        }
+        public function getRole (){
+            return $this->role;
+        }
+
+        public function setRole (string $role) {
+            $this->role = $role;
         }
     }

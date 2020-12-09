@@ -204,7 +204,13 @@ include_once '../../Model/Utilisateur.php';
                           Telephone
                         </th>
                         <th>
-                          Adresse mail
+                          Email
+                        </th>
+                        <th>
+                          Adresse
+                        </th>
+                        <th>
+                          Rôle
                         </th>
                         <th>
                           Login
@@ -237,10 +243,18 @@ include_once '../../Model/Utilisateur.php';
                 echo ("</td>");
                 echo ("<td>");
                 echo $rows['email'];
-                echo ("</td>");echo ("<td>");
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['adresse'];
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['role'];
+                echo ("</td>");
+                echo ("<td>");
                 echo $rows['login'];
                 echo ("</td>");
-                echo ("</td>");echo ("<td>");
+                echo ("</td>");
+                echo ("<td>");
                 echo $rows['password'];
                 echo ("</td>");
 

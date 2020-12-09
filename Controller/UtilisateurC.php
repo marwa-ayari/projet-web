@@ -32,8 +32,15 @@ include_once "config.php" ;
                 echo "Telephone";
                 echo ("</td>");
                 echo ("<td>");
+                echo "Adresse";
+                echo ("</td>");
+                echo ("<td>");
                 echo "Email";
-                echo ("</td>");echo ("<td>");
+                echo ("</td>");
+                echo ("<td>");
+                echo "Role";
+                echo ("</td>");
+                echo ("<td>");
                 echo "LOGIN";
                 echo ("</td>");
                 echo ("</td>");echo ("<td>");
@@ -65,11 +72,19 @@ include_once "config.php" ;
                 echo $rows['telephone'];
                 echo ("</td>");
                 echo ("<td>");
+                echo $rows['adresse'];
+                echo ("</td>");
+                echo ("<td>");
                 echo $rows['email'];
-                echo ("</td>");echo ("<td>");
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['role'];
+                echo ("</td>");
+                echo ("<td>");
                 echo $rows['login'];
                 echo ("</td>");
-                echo ("</td>");echo ("<td>");
+                echo ("</td>");
+                echo ("<td>");
                 echo $rows['password'];
                 echo ("</td>");
                 echo ("<td>");
@@ -101,7 +116,7 @@ include_once "config.php" ;
         } 
 
         public function ajouterUtilisateur($Utilisateur) {
-    $sql="insert into utilisateur(CIN,nom,prenom,telephone,email,login,password) values(:CIN,:nom,:prenom,:telephone,:email, :login, :password)";
+    $sql="insert into utilisateur(CIN,nom,prenom,telephone,email,login,password,role,adresse) values(:CIN,:nom,:prenom,:telephone,:email, :login, :password, :role, :adresse)";
     $db=config::getConnexion();
     $query=$db->prepare($sql);
     $query->execute([
@@ -111,7 +126,9 @@ include_once "config.php" ;
                     'telephone' => $Utilisateur->getTelephone(),
                     'email' => $Utilisateur->getEmail(),
 					'login' => $Utilisateur->getLogin(),
-                    'password' => $Utilisateur->getPassword()
+                    'password' => $Utilisateur->getPassword(),
+                    'role' => $Utilisateur->getRole(),
+					'adresse' => $Utilisateur->getAdresse()
                     
 				]); 
     	}
@@ -123,7 +140,7 @@ include_once "config.php" ;
     		$query->execute([
 					'id' => $id]);
         }
-        public function modifierutilisateur($CIN,$nom,$prenom,$telephone,$email,$login,$password,$id) {
+        public function modifierutilisateur($CIN,$nom,$prenom,$telephone,$email,$login,$password,$role,$adresse,$id) {
             $sql="update utilisateur SET 
                                 CIN = :CIN,
                                 nom = :nom, 
@@ -131,8 +148,10 @@ include_once "config.php" ;
                                 telephone = :telephone,
                                 email = :email,
                                 login = :login,
-                                password = :password
-                            WHERE id = :id";
+                                password = :password,
+                                role = :role,
+                                adresse = :adresse
+                                WHERE id = :id";
             $db=config::getConnexion(); 
             $query=$db->prepare($sql);
             $query->execute([
@@ -143,6 +162,8 @@ include_once "config.php" ;
                             'email' => $email,
                             'login' => $login,
                             'password' => $password,
+                            'role' => $role,
+                            'adresse' => $adresse,
                             'id' => $id
                         ]); 
             }

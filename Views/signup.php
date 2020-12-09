@@ -5,7 +5,7 @@
  $utilisateur = null;
  $utilisateurC = new UtilisateurC();
 
- if (isset($_POST["CIN"]) &&isset($_POST["nom"])&& isset($_POST["prenom"]) &&isset($_POST["telephone"]) && isset($_POST["dateNais"]) && isset($_POST["email"]) && isset($_POST["adresse"]) && isset($_POST["login"]) && isset($_POST["pass"])) 
+ if (isset($_POST["CIN"]) &&isset($_POST["nom"])&& isset($_POST["prenom"]) &&isset($_POST["telephone"]) && isset($_POST["dateNais"]) && isset($_POST["email"]) && isset($_POST["adresse"]) && isset($_POST["login"]) && isset($_POST["pass"]) &&isset($_POST["role"])) 
  {
     if($utilisateurC->unique_log($_POST["login"])==false)
     {
@@ -18,7 +18,8 @@
          $_POST['email'],
          $_POST['adresse'],
          $_POST['login'],
-         $_POST['pass']
+         $_POST['pass'],
+         $_POST['role']
          
      );
 $utilisateurC->ajouterUtilisateur($utilisateur);
@@ -131,19 +132,6 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
             <label id="elementdate" name="erreur"style="color: red;display: none;">Cette date n'existe pas encore </label>
             </div>
        
-
-            Sexe:
-            <div class="input-group">
-                <label>
-                    <input type="radio" name="genre" value="f" checked>
-                    Femme
-                </label>
-                <label>
-                    <input type="radio" name="genre" value="h">
-                    Homme
-                </label>
-            </div>
-
             Adresse mail:
             <div class="input-group">
             <input type="email" name="email" id="email" pattern=".+@gmail.com" placeholder="Enter mail"  onfocusout="ad_email()" Required>
@@ -160,15 +148,14 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
             Type de compte:
             <div class="input-group">
                 <div>
-                    <select id="profession" onfocusout="prof()" Required>
+                    <select id="role" name="role" onfocusout="prof()" Required>
                         <option value="select">select</option>
                         <option value="client">Client</option>
-                        <option value="administrateur">Administrateur</option>
                         <option value="resteurateur">Restaurateur</option>
                         <option value="livreur">Livreur</option>
 
                     </select>
-                </div><label id="elementpr" name="erreur" style="color: red;display: none;">Veuillez choisir un type </label>
+                </div><label id="elementpr" name="erreur" style="color: red;display: none;">Veuillez choisir un type de compte </label>
             </div>
 
             Adresse:
@@ -234,7 +221,7 @@ $utilisateurC->ajouterUtilisateur($utilisateur);
             if ( Number(document.getElementById("CIN").value) < 10000000) { element.style.display = "block"; } else { element.style.display = "none"; }
         }
         function prof() {
-            var pr = document.getElementById("profession").value;
+            var pr = document.getElementById("role").value;
             var element = document.getElementById("elementpr");
             if (pr === "select") { element.style.display = "block"; } else { element.style.display = "none"; }
         }
