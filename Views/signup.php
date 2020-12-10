@@ -22,9 +22,9 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
         );
         $utilisateurC->ajouterUtilisateur($utilisateur);
         //envoi d'un mail d'inscription valide
-        
 
-       /* function sanitize_my_email($field) {
+
+        /* function sanitize_my_email($field) {
             $field = filter_var($field, FILTER_SANITIZE_EMAIL);
             if (filter_var($field, FILTER_VALIDATE_EMAIL )) {
                 return true;
@@ -89,7 +89,25 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
     <link rel="stylesheet" href="../Views/css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../Views/css/custom.css">
+    <style>
+        .button2 {
+            background-color: transparent;
+        }
 
+        .button3 {
+            background-color: #fd7e14;
+        }
+
+        .button3:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .button2:hover {
+            background-color: #03a7dc;
+            color: white;
+        }
+    </style>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -100,112 +118,97 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 <body class="login-img3-body">
     <!-- Start header -->
 
-    <header class="top-navbar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
+    <nav class="navbar navbar-expand-lg navbar-light">
+
+        <div class="container">
+
+
+            <div class="pull-right">
+
+                <a class="btn btn-lg btn-circle btn-outline-new-white button2" href="../Views/signin.php" style>Se connecter</a>
+            </div>
+        </div>
+    </nav>
+
+    <form action="signup.php" method="POST">
+        <div class="login-form">
+            <div class="login-wrap">
+                <a class="navbar-brand">
                     <img src="../Views/images/logob.png" height="80" width="250">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbars-rs-food">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="../Views/signup.php">S'inscrire</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../Views/signin.php">Connexion</a></li>
-
-
-                    </ul>
+                Cin :
+                <div class="input-group">
+                    <input type="number" id="CIN" name="CIN" placeholder="CIN" onfocusout="cinfc()" Required>
+                    <label id="elementcin" name="erreur" style="color: red;display: none;">Le CIN est invalide</label>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <!-- End header -->
 
 
-    <div class="container">
-        <form action="signup.php" method="POST">
-            <div class="login-form">
-                <div class="login-wrap">
-                    CIN:
-                    <div class="input-group">
-                        <input type="number" id="CIN" name="CIN" placeholder="CIN" minlength="8" maxlength="8" onfocusout="cinfc()" Required>
-                        <label id="elementcin" name="erreur" style="color: red;display: none;">Le CIN est invalide</label>
-                    </div>
-
-
-                    Nom:
-                    <div class="input-group">
-                        <input type="text" id="nom" name="nom" placeholder="nom" onfocusout="majus_nom()" Required>
-                        <label id="element" name="erreur" style="color: red;display: none;">Le nom doit commencer par une majuscule </label>
-                    </div>
-
-                    Prenom:
-                    <div class="input-group">
-                        <input type="text" id="prenom" name="prenom" placeholder="prenom" onfocusout="majus_prenom()" Required>
-                        <label id="element1" name="erreur" style="color: red;display: none;">Le prenom doit commencer par une majuscule </label>
-                    </div>
-
-                    Date de naissance:
-                    <div class="input-group">
-                        <input type="date" id="dateNais" name="dateNais" onfocusout="age()" Required>
-                        <label id="elementdate" name="erreur" style="color: red;display: none;">Cette date n'existe pas encore </label>
-                    </div>
-
-                    Adresse mail:
-                    <div class="input-group">
-                        <input type="email" name="email" id="email"  placeholder="Enter mail" onfocusout="ad_email()" Required>
-                        <label id="elementemail" name="erreur" style="color: red;display: none;">L'adresse email est invalide </label>
-                    </div>
-
-                    Telephone:
-                    <div class="input-group">
-                        <input type="number" id="telephone" name="telephone" placeholder="24123856" minlength="8" maxlength="8" onfocusout="telephonefc()" Required>
-                        <label id="element2" name="erreur" style="color: red;display: none;">Le numéro de
-                            téléphone est erroné </label>
-                    </div>
-
-                    Type de compte:
-                    <div class="input-group">
-                        <div>
-                            <select id="role" name="role" onfocusout="prof()" Required>
-                                <option value="select">select</option>
-                                <option value="client">Client</option>
-                                <option value="resteurateur">Restaurateur</option>
-                                <option value="livreur">Livreur</option>
-
-                            </select>
-                        </div><label id="elementpr" name="erreur" style="color: red;display: none;">Veuillez choisir un type de compte </label>
-                    </div>
-
-                    Adresse:
-                    <div class="input-group">
-                        <textarea name="adresse" id="adresse" cols="30" rows="2" Required></textarea>
-                    </div>
-
-                    Login:
-                    <div class="input-group">
-                        <input type="text" name="login" id="login" placeholder="suzanne12" onfocusout="vide_unique_log()" Required>
-                        <label id="elementlog" name="erreur" style="color: red;display: none;">Le login est obligatoire et doit etre unique</label>
-                    </div>
-
-                    mot de passe:
-                    <div class="input-group">
-                        <input type="password" id="pass1" name="pass" placeholder="*****" onfocusout="passf()" Required>
-                    </div>
-
-                    confirmer mot de passe:
-                    <div class="input-group">
-                        <input type="password" id="pass2" placeholder="*****" onfocusout="passf()" Required> <label id="elementpass" name="erreur" style="color: red;display: none;">Veuillez verifier votre mot de passe </label>
-                    </div>
-
-
-                    <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="S'inscrire" onClick="validation()">
+                Nom :
+                <div class="input-group">
+                    <input type="text" id="nom" name="nom" placeholder="nom" onfocusout="majus_nom()" Required>
+                    <label id="element" name="erreur" style="color: red;display: none;">Le nom doit commencer par une majuscule </label>
                 </div>
+
+                Prenom :
+                <div class="input-group">
+                    <input type="text" id="prenom" name="prenom" placeholder="prenom" onfocusout="majus_prenom()" Required>
+                    <label id="element1" name="erreur" style="color: red;display: none;">Le prenom doit commencer par une majuscule </label>
+                </div>
+
+                Adresse mail :
+                <div class="input-group">
+                    <input type="text" name="email" id="email" placeholder="Enter mail" onfocusout="ad_email()" Required>
+                    <label id="elementemail" name="erreur" style="color: red;display: none;">L'adresse email est invalide </label>
+                </div>
+
+                Telephone :
+                <div class="input-group">
+                    <input type="number" id="telephone" name="telephone" placeholder="24123856" minlength="8" maxlength="8" onfocusout="telephonefc()" Required>
+                    <label id="element2" name="erreur" style="color: red;display: none;">Le numéro de
+                        téléphone est erroné </label>
+                </div>
+
+                Type de compte :
+                <div class="input-group">
+                    <div>
+                        <select id="role" name="role" onfocusout="prof()" Required>
+                            <option value="select">select</option>
+                            <option value="client">Client</option>
+                            <option value="resteurateur">Restaurateur</option>
+                            <option value="livreur">Livreur</option>
+
+                        </select>
+                    </div><label id="elementpr" name="erreur" style="color: red;display: none;">Veuillez choisir un type de compte </label>
+                </div>
+
+                Adresse :
+                <div class="input-group">
+                    <textarea name="adresse" id="adresse" cols="30" rows="2" Required></textarea>
+                </div>
+
+                Login :
+                <div class="input-group">
+                    <input type="text" name="login" id="login" placeholder="suzanne12" onfocusout="vide_unique_log()" Required>
+                    <label id="elementlog" name="erreur" style="color: red;display: none;">Le login est obligatoire et doit etre unique</label>
+                </div>
+
+                Mot de passe :
+                <div class="input-group">
+                    <input type="password" id="pass1" name="pass" placeholder="*****" onfocusout="passf()" Required>
+                </div>
+
+                Confirmer mot de passe :
+                <div class="input-group">
+                    <input type="password" id="pass2" placeholder="*****" onfocusout="passf()" Required> <label id="elementpass" name="erreur" style="color: red;display: none;">Veuillez verifier votre mot de passe </label>
+                </div>
+
+
+                <input class="btn btn-primary btn-block btn-lg btn-circle btn-outline-new-white button3" type="submit" name="submit" value="S'inscrire" onClick="validation()">
             </div>
+        </div>
 
 
-        </form>
+    </form>
     </div>
 
     <script>
@@ -236,18 +239,6 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
                 element.style.display = "none";
             } else {
                 element.style.display = "block";
-            }
-        }
-
-        function age() {
-            var today = new Date();
-            var element = document.getElementById("elementdate");
-            var dateNais = document.querySelector("#dateNais").value;
-            dateNais = new Date(dateNais);
-            if ((today.getFullYear() - dateNais.getFullYear()) < 0) {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
             }
         }
 
@@ -305,7 +296,6 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
             majus_nom();
             majus_prenom();
             ad_email();
-            age();
             telephonefc();
             cinfc();
             prof();
@@ -314,7 +304,6 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
             var error1 = document.getElementById("element");
             var error2 = document.getElementById("element1");
             var error3 = document.getElementById("element2");
-            var error4 = document.getElementById("elementdate");
             var error5 = document.getElementById("elementpr");
             var error6 = document.getElementById("elementemail");
             var error7 = document.getElementById("elementpass");
@@ -323,7 +312,7 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
             var ch = document.getElementById("nom").value;
             var ch1 = document.getElementById("prenom").value;
 
-            if ((error0.style.display == "none") && (error1.style.display == "none") && (error2.style.display == "none") && (error4.style.display == "none") && (error3.style.display == "none") && (error5.style.display == "none") && (error6.style.display == "none") && (error7.style.display == "none") && (error8.style.display == "none"))
+            if ((error0.style.display == "none") && (error1.style.display == "none") && (error2.style.display == "none") && (error3.style.display == "none") && (error5.style.display == "none") && (error6.style.display == "none") && (error7.style.display == "none") && (error8.style.display == "none"))
                 alert("Formulaire bien rempli");
             else alert("Votre formulaire est mal rempli");
         }

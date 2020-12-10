@@ -18,10 +18,9 @@ if (
         //  avec l'email à l'intérieur
         if ($message != 'le login ou le mot de passe est incorrect') {
 
-        
+
 
             header('Location:../Views/index.php');
- 
         } else {
             $message = 'le login ou le mot de passe est incorrect';
         }
@@ -72,10 +71,9 @@ if (
 
 </head>
 
-<body class="login-img3-body">
+<body class="login-img2-body">
     <!-- Start header -->
-
-    <header class="top-navbar">
+    <!-- <header class="top-navbar">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
@@ -94,31 +92,63 @@ if (
             </div>
         </nav>
     </header>
+    -->
     <!-- End header -->
-    <div class="container">
+    <style>
+        .button2 {
+            background-color: transparent;
+        }
 
-        <form action="signin.php" method="POST">
+        .button3 {
+            background-color: #fd7e14;
+        }
+
+        .button3:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .button2:hover {
+            background-color: #03a7dc;
+            color: white;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+
+        <div class="container">
 
 
-            <div class="login-form">
-                <div class="login-wrap">
-                    Login:
-                    <div class="input-group">
-                        <input type="text" name="login" id="login" onfocusout="vide_log()" Required>
-                        <label id="elementlog" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label>
+            <div class="pull-right">
 
-                    </div>
-                    mot de passe:
-                    <div class="input-group">
-                        <input type="password" id="pass" name="pass" onfocusout="vide_pass()" Required>
-                        <label id="elementpass" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label>
-                    </div>
-
-                    <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="Se Connecter" onClick="validation()">
-                </div>
+                <a class="btn btn-lg btn-circle btn-outline-new-white button2" href="../Views/signup.php" style>S'inscrire</a>
             </div>
+        </div>
+    </nav>
+    <form action="signin.php" method="POST">
+        <div class="login-form">
+            <div class="login-wrap">
+                <a class="navbar-brand">
+                    <img src="../Views/images/logob.png" height="80" width="250">
+                </a>
+                Login :
+                <div class="input-group">
+                    <input type="text" name="login" id="login" onfocusout="vide_log()" Required>
+                    <label id="elementlog" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label>
 
-        </form>
+                </div>
+                Mot de passe :
+                <div class="input-group">
+                    <input type="password" id="pass" name="pass" onfocusout="vide_pass()" Required>
+                    <label id="elementpass" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label>
+                </div>
+
+                <input class="btn btn-primary btn-block btn-lg btn-circle btn-outline-new-white button3" type="submit" name="submit" value="Se Connecter" onClick="validation()">
+            </div>
+        </div>
+        </div>
+    </form>
+
 
 
 </body>
