@@ -4,19 +4,17 @@
         private ?string $CIN=null;
         private ?string $nom=null;
         private ?string $prenom=null;
-        private ?string $telephone=null;
-        private ?string $dateNais=null; 
+        private ?string $telephone=null; 
         private ?string $email=null;
         private ?string $adresse=null;
         private ?string $login=null;
         private ?string $password=null;
 
-        public function __construct(string $CIN, string $nom, string $prenom, string $telephone, string $dateNais, string $email, string $adresse, string $login, string $pass, string $role) {
+        public function __construct(string $CIN, string $nom, string $prenom, string $telephone, string $email, string $adresse, string $login, string $pass, string $role) {
             $this->CIN= $CIN;
             $this->nom= $nom;
             $this->prenom= $prenom;
             $this->telephone= $telephone;
-            $this->dateNais= $dateNais; 
             $this->email= $email;
             $this->adresse= $adresse;
             $this->login= $login;
@@ -53,15 +51,7 @@
         public function setTelephone (string $telephone) {
             $this->telephone = $telephone;
         }
-        public function getDateNais (){
-            return $this->dateNais ;
-        }
-
-        public function setDateNais (string $dateNais) {
-            $this->dateNais = $dateNais ;
-        }
         
-
         public function getEmail (){
             return $this->email;
         }

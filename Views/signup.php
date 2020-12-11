@@ -5,14 +5,13 @@ $error = "";
 $utilisateur = null;
 $utilisateurC = new UtilisateurC();
 
-if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["telephone"]) && isset($_POST["dateNais"]) && isset($_POST["email"]) && isset($_POST["adresse"]) && isset($_POST["login"]) && isset($_POST["pass"]) && isset($_POST["role"])) {
+if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["telephone"]) && isset($_POST["email"]) && isset($_POST["adresse"]) && isset($_POST["login"]) && isset($_POST["pass"]) && isset($_POST["role"])) {
     if ($utilisateurC->unique_log($_POST["login"]) == false) {
         $utilisateur = new Utilisateur(
             $_POST["CIN"],
             $_POST['nom'],
             $_POST['prenom'],
             $_POST["telephone"],
-            $_POST['dateNais'],
             $_POST['email'],
             $_POST['adresse'],
             $_POST['login'],
@@ -32,13 +31,13 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
                 return false;
             }
         }
-
-        $to_email =$_POST['email'];
+*/
+        $to_email = $_POST['email'];
         $subject = 'Testing PHP Mail';
         $message = 'This mail is sent using the PHP mail Inscription valide';
-        $headers = ' ';
+        $headers = 'marwa.ayari97@gmail.com ';
         //check if the email address is invalid $secure_check
-        $secure_check = sanitize_my_email($to_email);
+        $secure_check = false; //sanitize_my_email($to_email);
         if ($secure_check == false) {
             echo "adresse email invalide";
         } else { //send email 
@@ -46,7 +45,7 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
             echo ('<script> alert("Nous vous avons envoyer un mail"); </script>');
         }
 
-*/
+
 
         header('Location:../Views/signin.php');
     } else {
@@ -117,14 +116,16 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 
 <body class="login-img3-body">
     <!-- Start header -->
-
+    <div class="about-section-box">
+            <div class="col-lg-6 col-md-6 col-sm-12 ">
+                <div class="inner-column">
+                    <h1 style="color:   #61e9f4;">Bienvenue fi Dar mimaa</h1>
+                </div>
+            </div>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light">
-
         <div class="container">
-
-
             <div class="pull-right">
-
                 <a class="btn btn-lg btn-circle btn-outline-new-white button2" href="../Views/signin.php" style>Se connecter</a>
             </div>
         </div>
@@ -138,70 +139,76 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
                 </a>
                 Cin :
                 <div class="input-group">
-                    <input type="number" id="CIN" name="CIN" placeholder="CIN" onfocusout="cinfc()" Required>
-                    <label id="elementcin" name="erreur" style="color: red;display: none;">Le CIN est invalide</label>
+                    <input class="form-control" type="number" id="CIN" name="CIN" placeholder="CIN" onfocusout="cinfc()" Required>
                 </div>
+                <label id="elementcin" name="erreur" style="color: red;display: none;">Le CIN est invalide</label>
+
 
 
                 Nom :
                 <div class="input-group">
-                    <input type="text" id="nom" name="nom" placeholder="nom" onfocusout="majus_nom()" Required>
-                    <label id="element" name="erreur" style="color: red;display: none;">Le nom doit commencer par une majuscule </label>
+                    <input class="form-control" type="text" id="nom" name="nom" placeholder="nom" onfocusout="majus_nom()" Required>
                 </div>
+                <label id="element" name="erreur" style="color: red;display: none;">Le nom doit commencer par une majuscule </label>
+
 
                 Prenom :
                 <div class="input-group">
-                    <input type="text" id="prenom" name="prenom" placeholder="prenom" onfocusout="majus_prenom()" Required>
-                    <label id="element1" name="erreur" style="color: red;display: none;">Le prenom doit commencer par une majuscule </label>
+                    <input class="form-control" type="text" id="prenom" name="prenom" placeholder="prenom" onfocusout="majus_prenom()" Required>
                 </div>
+                <label id="element1" name="erreur" style="color: red;display: none;">Le prenom doit commencer par une majuscule </label>
+
 
                 Adresse mail :
                 <div class="input-group">
-                    <input type="text" name="email" id="email" placeholder="Enter mail" onfocusout="ad_email()" Required>
-                    <label id="elementemail" name="erreur" style="color: red;display: none;">L'adresse email est invalide </label>
+                    <input class="form-control" type="text" name="email" id="email" placeholder="Enter mail" onfocusout="ad_email()" Required>
                 </div>
+                <label id="elementemail" name="erreur" style="color: red;display: none;">L'adresse email est invalide </label>
+
 
                 Telephone :
                 <div class="input-group">
-                    <input type="number" id="telephone" name="telephone" placeholder="24123856" minlength="8" maxlength="8" onfocusout="telephonefc()" Required>
-                    <label id="element2" name="erreur" style="color: red;display: none;">Le numéro de
-                        téléphone est erroné </label>
+                    <input class="form-control" type="number" id="telephone" name="telephone" placeholder="24123856" minlength="8" maxlength="8" onfocusout="telephonefc()" Required>
                 </div>
+                <label id="element2" name="erreur" style="color: red;display: none;">Le numéro de
+                    téléphone est erroné </label>
+
 
                 Type de compte :
                 <div class="input-group">
                     <div>
-                        <select id="role" name="role" onfocusout="prof()" Required>
+                        <select class="form-control" id="role" name="role" onfocusout="prof()" Required>
                             <option value="select">select</option>
                             <option value="client">Client</option>
                             <option value="resteurateur">Restaurateur</option>
                             <option value="livreur">Livreur</option>
 
                         </select>
-                    </div><label id="elementpr" name="erreur" style="color: red;display: none;">Veuillez choisir un type de compte </label>
-                </div>
+                    </div>
+                </div><label id="elementpr" name="erreur" style="color: red;display: none;">Veuillez choisir un type de compte </label>
+
 
                 Adresse :
                 <div class="input-group">
-                    <textarea name="adresse" id="adresse" cols="30" rows="2" Required></textarea>
+                    <textarea class="form-control" name="adresse" id="adresse" cols="30" rows="2" Required></textarea>
                 </div>
 
                 Login :
                 <div class="input-group">
-                    <input type="text" name="login" id="login" placeholder="suzanne12" onfocusout="vide_unique_log()" Required>
-                    <label id="elementlog" name="erreur" style="color: red;display: none;">Le login est obligatoire et doit etre unique</label>
+                    <input class="form-control" type="text" name="login" id="login" placeholder="suzanne12" onfocusout="vide_unique_log()" Required>
                 </div>
+                <label id="elementlog" name="erreur" style="color: red;display: none;">Le login est obligatoire et doit etre unique</label>
 
                 Mot de passe :
                 <div class="input-group">
-                    <input type="password" id="pass1" name="pass" placeholder="*****" onfocusout="passf()" Required>
+                    <input class="form-control" type="password" id="pass1" name="pass" placeholder="*****" onfocusout="passf()" Required>
                 </div>
 
                 Confirmer mot de passe :
                 <div class="input-group">
-                    <input type="password" id="pass2" placeholder="*****" onfocusout="passf()" Required> <label id="elementpass" name="erreur" style="color: red;display: none;">Veuillez verifier votre mot de passe </label>
+                    <input class="form-control" type="password" id="pass2" placeholder="*****" onfocusout="passf()" Required>
                 </div>
-
+                <label id="elementpass" name="erreur" style="color: red;display: none;">Veuillez verifier votre mot de passe </label>
 
                 <input class="btn btn-primary btn-block btn-lg btn-circle btn-outline-new-white button3" type="submit" name="submit" value="S'inscrire" onClick="validation()">
             </div>

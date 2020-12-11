@@ -72,28 +72,7 @@ if (
 </head>
 
 <body class="login-img2-body">
-    <!-- Start header -->
-    <!-- <header class="top-navbar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="../Views/images/logob.png" height="80" width="250">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbars-rs-food">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="../Views/signup.php">S'inscrire</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="../Views/signin.php">Connexion</a></li>
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    -->
-    <!-- End header -->
     <style>
         .button2 {
             background-color: transparent;
@@ -109,7 +88,7 @@ if (
         }
 
         .button2:hover {
-            background-color: #03a7dc;
+            background-color: #fd7e14;
             color: white;
         }
     </style>
@@ -133,15 +112,17 @@ if (
                 </a>
                 Login :
                 <div class="input-group">
-                    <input type="text" name="login" id="login" onfocusout="vide_log()" Required>
-                    <label id="elementlog" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label>
-
+                    <input class="form-control" type="text" name="login" id="login" onfocusout="vide_log()" Required>
                 </div>
+                <label id="elementlog" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label>
+
+
                 Mot de passe :
                 <div class="input-group">
-                    <input type="password" id="pass" name="pass" onfocusout="vide_pass()" Required>
-                    <label id="elementpass" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label>
+                    <input class="form-control" type="password" id="pass" name="pass" onfocusout="vide_pass()" Required>
                 </div>
+                <label id="elementpass" name="erreur" style="color: red;display: none;">Ce champ est obligatoire</label>
+
 
                 <input class="btn btn-primary btn-block btn-lg btn-circle btn-outline-new-white button3" type="submit" name="submit" value="Se Connecter" onClick="validation()">
             </div>

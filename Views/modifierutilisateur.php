@@ -63,45 +63,41 @@ if (isset($_POST['update'])) {
 
 </head>
 
+<style>
+  .button2 {
+    background-color: transparent;
+  }
 
+  .button3 {
+    background-color: #fd7e14;
+  }
+
+  .button3:hover {
+    background-color: transparent;
+    color: white;
+  }
+
+  .button2:hover {
+    background-color: #03a7dc;
+    color: white;
+  }
+</style>
 
 <body class="login-img3-body">
-  <header class="top-navbar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="index.php">
-          <img src="../Views/images/logob.png" height="80" width="250">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbars-rs-food">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="../Views/signup.php">Sign Up</a></li>
-            <li class="nav-item"><a class="nav-link" href="../Views/signin.php">Sign In</a></li>
-            <li class="nav-item"><a class="nav-link" href="../Views/index.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="../Views/menu.php">Menu</a></li>
-            <li class="nav-item"><a class="nav-link" href="../Views/about.php">About</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                <a class="dropdown-item" href="../Views/reservation.php">Reservation</a>
-                <a class="dropdown-item" href="../Views/stuff.php">Stuff</a> </div>
-            </li>
 
-            <li class="nav-item"><a class="nav-link" href="../Views/contact.php">Contact</a></li>
-          </ul>
+  <div class="about-section-box">
+    <div class="container">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 ">
+          <div class="inner-column">
+            <h1 style="color:   #61e9f4;">
+              Modifier les coordonnées
+            </h1>
+            <h1 style="color:   #61e9f4;" >Bienvenue fi Dar mimaa</h1>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <!-- End header -->
-
-
-
-
-
-  <h3>Modifier cet utilisateur</h3>
+    </div>
+  </div>
 
   <div class="container">
     <form method="POST">
@@ -109,42 +105,44 @@ if (isset($_POST['update'])) {
         <div class="login-wrap">
 
           <?php foreach ($result as $rows) { ?>
+            <a class="navbar-brand">
+              <img src="../Views/images/logob.png" height="80" width="250">
+            </a>
 
-
-            CIN:
+            CIN :
             <div class="input-group">
-              <input type="number" name="CIN" value="<?php echo $rows['CIN'] ?>" placeholder="Enter your CIN" Required>
+              <input class="form-control" type="number" name="CIN" value="<?php echo $rows['CIN'] ?>" placeholder="Enter your CIN" Required>
             </div>
 
-            Nom:
+            Nom :
             <div class="input-group">
-              <input type="text" name="Nom" value="<?php echo $rows['nom'] ?>" placeholder="Enter name" Required>
+              <input class="form-control" type="text" name="Nom" value="<?php echo $rows['nom'] ?>" placeholder="Enter name" Required>
             </div>
 
-            Prenom:
+            Prenom :
             <div class="input-group">
-              <input type="text" name="Prenom" value="<?php echo $rows['prenom'] ?>" placeholder="Enter prenom" Required>
+              <input class="form-control" type="text" name="Prenom" value="<?php echo $rows['prenom'] ?>" placeholder="Enter prenom" Required>
             </div>
 
-            Telephone:
+            Telephone :
             <div class="input-group">
-              <input type="number" name="telephone" value="<?php echo $rows['telephone'] ?>" placeholder="Enter your phone number" Required>
+              <input class="form-control" type="number" name="telephone" value="<?php echo $rows['telephone'] ?>" placeholder="Enter your phone number" Required>
             </div>
 
-            Email:
+            Email :
             <div class="input-group">
-              <input type="email" name="Email" value="<?php echo $rows['email'] ?>" pattern=".+@gmail.com|.+@esprit.tn" placeholder="Enter mail" Required>
+              <input class="form-control" type="email" name="Email" value="<?php echo $rows['email'] ?>" pattern=".+@gmail.com|.+@esprit.tn" placeholder="Enter mail" Required>
             </div>
 
-            Adresse:
+            Adresse :
             <div class="input-group">
-              <input type="text" name="Adresse" value="<?php echo $rows['adresse'] ?>" placeholder="Votre adresse" Required>
+              <input class="form-control" type="text" name="Adresse" value="<?php echo $rows['adresse'] ?>" placeholder="Votre adresse" Required>
             </div>
 
-            Type de compte:
+            Type de compte :
             <div class="input-group">
 
-              <select name="Role" value="<?php echo $rows['role'] ?>" Required>
+              <select class="form-control" name="Role" value="<?php echo $rows['role'] ?>" Required>
                 <option value="select">select</option>
                 <option value="client">Client</option>
                 <option value="resteurateur">Restaurateur</option>
@@ -153,20 +151,16 @@ if (isset($_POST['update'])) {
               </select>
             </div>
 
-
-
-
-
-            Login:
+            Login :
             <div class="input-group">
-              <input type="text" name="Login" value="<?php echo $rows['login'] ?>" placeholder="Enter LOGIN" Required>
+              <input class="form-control" type="text" name="Login" value="<?php echo $rows['login'] ?>" placeholder="Enter LOGIN" Required>
             </div>
 
-            Mot de passe:
+            Mot de passe :
             <div class="input-group">
-              <input type="password" name="Password" value="<?php echo $rows['password'] ?>" placeholder="Enter PASSWORD" Required>
+              <input class="form-control" type="password" name="Password" value="<?php echo $rows['password'] ?>" placeholder="Enter PASSWORD" Required>
             </div>
-            <input class="btn btn-primary btn-lg btn-block" type="submit" name="update" value="Modifier">
+            <input class="btn btn-lg btn-circle btn-outline-new-white button3 form-control" type="submit" name="update" value="Modifier">
 
           <?php } ?>
         </div>

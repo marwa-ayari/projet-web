@@ -38,7 +38,7 @@ include_once '../../Model/Utilisateur.php';
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Material Dashboard Dark Edition by Creative Tim
+    Fi Dar Mima 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -52,45 +52,45 @@ include_once '../../Model/Utilisateur.php';
 
 <body class="dark-edition">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+    <div class="sidebar" data-color="orange" data-background-color="black" data-image="../../Views/images/bleuvert.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+      <div class="logo"><a href="" class="simple-text logo-normal">
+          Taches 
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
+        <li class="nav-item  ">
             <a class="nav-link" href="./dashboard.html">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
+          <li class="nav-item active ">
+            <a class="nav-link" href="./tables.php">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Gestion des utilisateurs</p>
             </a>
           </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="./tables.html">
+          <li class="nav-item ">
+            <a class="nav-link" href="./user.html">
               <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <p>Gestion des menus</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <i class="material-icons">bubble_chart</i>
+              <p>Gestion Des Restaurants</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+              <i class="material-icons">library_books</i>
+              <p>Gestion Des Articles</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -102,7 +102,13 @@ include_once '../../Model/Utilisateur.php';
           <li class="nav-item ">
             <a class="nav-link" href="./notifications.html">
               <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+              <p>Gestion Des Reservations</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./notifications.html">
+              <i class="material-icons">notifications</i>
+              <p>Gestion Des Livraisons</p>
             </a>
           </li>
           <!-- <li class="nav-item active-pro ">
@@ -119,7 +125,7 @@ include_once '../../Model/Utilisateur.php';
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Table List</a>
+            <a class="navbar-brand" href="">Clients, Restaurateurs et Livreurs</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -261,12 +267,12 @@ include_once '../../Model/Utilisateur.php';
 ?>
 
                               <td class="td-actions text-right">
-                              <a rel="tooltip" title="Modifier" class="btn btn-white btn-link btn-sm" <?php echo("href=../../Controller/modifierutilisateur.php?id=" .$rows['id']." ") ?> >
+                              <a rel="tooltip" title="Modifier" class="btn btn-white btn-link btn-sm" <?php echo("href=../../Views/modifierutilisateur.php?id=" .$rows['id']." ") ?> >
                               <i class="material-icons">edit</i>
             </a>
 
 
-                              <a rel="tooltip" title="Supprimer" class="btn btn-white btn-link btn-sm" <?php echo("href=../../Controller/supprimerutilisateur.php?id=" .$rows['id']." ") ?> >
+                              <a rel="tooltip" title="Supprimer" class="btn btn-white btn-link btn-sm" <?php echo("href=../../Views/supprimerutilisateur.php?id=" .$rows['id']." ") ?> >
                                 <i class="fa fa-trash"></i>
             </a>
                             </td>
@@ -312,7 +318,8 @@ include_once '../../Model/Utilisateur.php';
           </nav>
           <div class="copyright float-right" id="date">
             , made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            <a href="https://www.creative-tim.com" target="_blank">Taches
+          </a> for a better web.
           </div>
         </div>
       </footer>
