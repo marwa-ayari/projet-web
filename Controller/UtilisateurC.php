@@ -167,6 +167,30 @@ include_once "config.php" ;
                             'id' => $id
                         ]); 
             }
+            public function modifiercompte($CIN,$nom,$prenom,$telephone,$email,$login,$password,$role,$adresse) {
+                $sql="update utilisateur SET 
+                                    CIN = :CIN,
+                                    nom = :nom, 
+                                    prenom = :prenom,
+                                    telephone = :telephone,
+                                    email = :email,
+                                    password = :password,
+                                    role = :role,
+                                    adresse = :adresse
+                                    WHERE login = :login";
+                $db=config::getConnexion(); 
+                $query=$db->prepare($sql);
+                $query->execute([
+                                'CIN' => $CIN,
+                                'nom' => $nom,
+                                'prenom' => $prenom,
+                                'telephone' => $telephone,
+                                'email' => $email,
+                                'login' => $login,
+                                'password' => $password,
+                                'role' => $role,
+                                'adresse' => $adresse                            ]); 
+                }
 
             function connexionUser($login,$password){
                 $sql="SELECT * FROM utilisateur WHERE login='" . $login . "' and password = '". $password."'";

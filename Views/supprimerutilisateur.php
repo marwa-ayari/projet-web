@@ -14,5 +14,5 @@
      $error = "Missing id";
      }
 
-     header("location:../Back/examples/tables.php"); 
+     header("location:../Back/examples/Gestionutilisateur.php"); 
 ?>

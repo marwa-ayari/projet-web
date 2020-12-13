@@ -1,12 +1,12 @@
 <?php
 include_once '../Controller/UtilisateurC.php';
 include_once '../Model/Utilisateur.php';
-
-$id = $_GET['id'];
+session_start();
+$login =$_SESSION['e'];
 
 $utilisateurC = new UtilisateurC();
 $pdo = config::getConnexion();
-$query = $pdo->prepare("select * from utilisateur where id='$id'");
+$query = $pdo->prepare("select * from utilisateur where login='$login'");
 $query->execute();
 $result = $query->fetchAll();
 
@@ -20,8 +20,8 @@ if (isset($_POST['update'])) {
   $password = $_POST['Password'];
   $adresse = $_POST['Adresse'];
   $role = $_POST['Role'];
-  $utilisateurC->modifierutilisateur($CIN, $nom, $prenom, $telephone, $email, $login, $password, $role, $adresse, $id);
-  header("location:../Back/examples/Gestionutilisateur.php");
+  $utilisateurC->modifiercompte($CIN, $nom, $prenom, $telephone, $email, $login, $password, $role, $adresse);
+  header("location:index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -91,7 +91,7 @@ if (isset($_POST['update'])) {
         <div class="col-lg-6 col-md-6 col-sm-12 ">
           <div class="inner-column">
             <h1 style="color:   #61e9f4;">
-              Modifier les coordonnées
+              Modifier mes coordonnées
             </h1>
             <h1 style="color:   #61e9f4;" >Bienvenue fi Dar mimaa</h1>
           </div>
