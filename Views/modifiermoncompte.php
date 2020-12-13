@@ -143,7 +143,6 @@ if (isset($_POST['update'])) {
             <div class="input-group">
 
               <select class="form-control" name="Role" value="<?php echo $rows['role'] ?>" Required>
-                <option value="select">select</option>
                 <option value="client">Client</option>
                 <option value="resteurateur">Restaurateur</option>
                 <option value="livreur">Livreur</option>

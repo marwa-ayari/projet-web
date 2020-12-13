@@ -188,12 +188,12 @@ button:focus{
 }
 
 .top-navbar .navbar-light .navbar-nav .nav-item .nav-link:hover{
-	background: #022955;
+	background: #578dca;
     color: #ffffff;
     
 }
 .top-navbar .navbar-light .navbar-nav .nav-item.active .nav-link{
-	background: #022955;
+	background:#3175c4;
 	color: #ffffff;
 	border-radius: 4px;
 }
@@ -219,7 +219,7 @@ button:focus{
 	height: 100vh;
 }
 .slides-navigation a {
-	background: #022955;
+	background: #fd7e14;
     position: absolute;
     height: 70px;
     width: 70px;
@@ -280,7 +280,7 @@ button:focus{
 }
 .btn-outline-new-white:hover {
     color: #fffafa;
-    background-color: #022955;
+    background-color: #fd7e14;
     border-color: #fffafa;
 }
 
@@ -326,7 +326,7 @@ button:focus{
 .inner-column h1{
 	font-family: 'Arbutus Slab', serif;
 	font-size: 30px;
-	color: #61e9f4;
+	color: #fd7e14;
 }
 
 .inner-column h4{
@@ -341,7 +341,7 @@ button:focus{
 	color: #fffafa; 
 }
 .inner-column .btn-outline-new-white:hover{
-	color: #578dca;
+	color: #fffafa;
 }
 
 /*------------------------------------------------------------------
@@ -569,7 +569,7 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .contact-imfo-box{
-	background: #ca500a ;
+	background: #f56f00 ;
 	padding: 30px 0;
 }
 
@@ -585,7 +585,7 @@ button:focus{
 	line-height: 60px;
 	text-align: center;
 	background: #fffafa;
-	color: #ca500a;
+	color: #fd7e14;
 	font-size: 30px;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -696,7 +696,7 @@ button:focus{
 }
 
 .subscribe_form .submit {
-    background-color: #030170;
+    background-color: #fd7e14;
     color: #fff;
     font-size: 16px;
     font-weight: 600;
@@ -728,7 +728,7 @@ button:focus{
 	margin-top: 20px;
 	position: relative;
 	display: block;
-	background-color: #ca500a;
+	background-color: #f56f00;
 	border-top: 1px dashed rgba(207, 166, 113);
 	padding: 30px 0;
 	z-index: 1;
@@ -1321,7 +1321,7 @@ blockquote {
     height: 32px;
     text-align: center;
     line-height: 30px;
-    background: #022955;
+    background: #41a5f2;
     color: #ffffff;
     cursor: pointer;
     border: 0;
