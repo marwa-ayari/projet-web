@@ -204,11 +204,11 @@ button:focus{
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item:hover{
-	background: #022955;
+	background:#3175c4;
 	color: #ffffff;
 }
 .navbar-light .navbar-toggler:hover{
-	background: #022955;
+	background:#3175c4;
 }
 
 /*------------------------------------------------------------------
@@ -235,7 +235,7 @@ button:focus{
 	font-size: 40px;
 }
 .slides-navigation a:hover {
-	background: #022955;
+	background: #41a5f2;
 }
 .cover-slides .container{
 	height: 100%;
@@ -308,7 +308,7 @@ button:focus{
 	border: 2px solid #ffffff;
 }
 .slides-pagination a.current{
-	background: #022955;
+	background:#41a5f2;
 	border: 2px solid #ffffff;
 }
 
@@ -1321,7 +1321,7 @@ blockquote {
     height: 32px;
     text-align: center;
     line-height: 30px;
-    background: #41a5f2;
+    background: #42a5f2;
     color: #ffffff;
     cursor: pointer;
     border: 0;

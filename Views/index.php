@@ -38,8 +38,8 @@ if (empty($_SESSION['e'])) {
 	<meta name="author" content="">
 
 	<!-- Site Icons -->
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="images/logob.jpg">
+
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">

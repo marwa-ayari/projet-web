@@ -1,3 +1,20 @@
+<?php
+include_once "../../Controller/config.php" ;
+include_once '../../Model/Utilisateur.php';
+    include_once '../../Controller/UtilisateurC.php';
+    $utilisateurC = new UtilisateurC();
+    try{
+      $pdo=config::getConnexion();
+      $query= $pdo ->prepare(
+          'SELECT * FROM utilisateur'
+      );
+      $query->execute();
+      $result = $query->fetchAll();
+  }
+  catch(PDOException $e){
+      $e->getMessage();
+  }
+?>
 <!--
 =========================================================
 * Material Dashboard Dark Edition - v2.1.0
@@ -17,11 +34,11 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../Views/images/logob.jpg">
+  <link rel="icon" type="image/png" href="../../Views/images/logob.jpg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Material Dashboard Dark Edition by Creative Tim
+    Fi Dar Mima 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -35,45 +52,45 @@
 
 <body class="dark-edition">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+    <div class="sidebar" data-color="orange" data-background-color="black" data-image="../../Views/images/bleuvert.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+      <div class="logo"><a href="" class="simple-text logo-normal">
+          Taches 
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
+        <li class="nav-item  ">
             <a class="nav-link" href="./dashboard.html">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
+          <li class="nav-item active ">
+            <a class="nav-link" href="./tables.php">
+              <i class="material-icons">person</i>
+              <p>Gestion des utilisateurs</p>
+            </a>
+          </li>
           <li class="nav-item ">
             <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <i class="material-icons">content_paste</i>
+              <p>Gestion des menus</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li class="nav-item active ">
             <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <i class="material-icons">bubble_chart</i>
+              <p>Gestion Des Restaurants</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+              <i class="material-icons">library_books</i>
+              <p>Gestion Des Articles</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -85,7 +102,13 @@
           <li class="nav-item ">
             <a class="nav-link" href="./notifications.html">
               <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+              <p>Gestion Des Reservations</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./notifications.html">
+              <i class="material-icons">notifications</i>
+              <p>Gestion Des Livraisons</p>
             </a>
           </li>
           <!-- <li class="nav-item active-pro ">
@@ -102,7 +125,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Typography</a>
+            <a class="navbar-brand" href="">Clients, Restaurateurs et Livreurs</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -160,99 +183,109 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <div class="card">
-            <div class="card-header card-header-primary">
-              <h4 class="card-title">Material Dashboard Heading</h4>
-              <p class="card-category">Created using Roboto Font Family</p>
-            </div>
-            <div class="card-body">
-              <div id="typography">
-                <div class="card-title">
-                  <h2>Typography</h2>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary" >
+                  <h4 class="card-title ">Tableau des Utilisateurs</h4>
+                  <p class="card-category"></p>
                 </div>
-                <div class="row">
-                  <div class="tim-typo">
-                    <h1>
-                      <span class="tim-note">Header 1</span>The Life of Material Dashboard </h1>
-                  </div>
-                  <div class="tim-typo">
-                    <h2>
-                      <span class="tim-note">Header 2</span>The Life of Material Dashboard</h2>
-                  </div>
-                  <div class="tim-typo">
-                    <h3>
-                      <span class="tim-note">Header 3</span>The Life of Material Dashboard</h3>
-                  </div>
-                  <div class="tim-typo">
-                    <h4>
-                      <span class="tim-note">Header 4</span>The Life of Material Dashboard</h4>
-                  </div>
-                  <div class="tim-typo">
-                    <h5>
-                      <span class="tim-note">Header 5</span>The Life of Material Dashboard</h5>
-                  </div>
-                  <div class="tim-typo">
-                    <h6>
-                      <span class="tim-note">Header 6</span>The Life of Material Dashboard</h6>
-                  </div>
-                  <div class="tim-typo">
-                    <p>
-                      <span class="tim-note">Paragraph</span>
-                      I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
-                  </div>
-                  <div class="tim-typo">
-                    <span class="tim-note">Quote</span>
-                    <blockquote class="blockquote">
-                      <p>
-                        I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
-                      </p>
-                      <small>
-                        Kanye West, Musician
-                      </small>
-                    </blockquote>
-                  </div>
-                  <div class="tim-typo">
-                    <span class="tim-note">Muted Text</span>
-                    <p class="text-muted">
-                      I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
-                    </p>
-                  </div>
-                  <div class="tim-typo">
-                    <span class="tim-note">Primary Text</span>
-                    <p class="text-primary">
-                      I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                  </div>
-                  <div class="tim-typo">
-                    <span class="tim-note">Info Text</span>
-                    <p class="text-info">
-                      I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                  </div>
-                  <div class="tim-typo">
-                    <span class="tim-note">Success Text</span>
-                    <p class="text-success">
-                      I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                  </div>
-                  <div class="tim-typo">
-                    <span class="tim-note">Warning Text</span>
-                    <p class="text-warning">
-                      I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
-                    </p>
-                  </div>
-                  <div class="tim-typo">
-                    <span class="tim-note">Danger Text</span>
-                    <p class="text-danger">
-                      I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
-                  </div>
-                  <div class="tim-typo">
-                    <h2>
-                      <span class="tim-note">Small Tag</span>
-                      Header with small subtitle
-                      <br>
-                      <small>Use "small" tag for the headers</small>
-                    </h2>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          CIN
+                        </th>
+                        <th>
+                          Nom
+                        </th>
+                        <th>
+                          Prenom
+                        </th>
+                        <th>
+                          Telephone
+                        </th>
+                        <th>
+                          Email
+                        </th>
+                        <th>
+                          Adresse
+                        </th>
+                        <th>
+                          Rôle
+                        </th>
+                        <th>
+                          Login
+                        </th>
+                        <th>
+                          Mot de passe
+                        </th>
+
+                      </thead>
+                      <tbody>
+                        
+<?php
+
+                      foreach($result as $rows)
+            {
+            echo ("<tr><td>");
+            echo $rows['id'];
+            echo ("</td>");
+            echo ("<td>");
+            echo $rows['CIN'];
+            echo ("</td>");
+                echo ("<td>");
+                echo $rows['nom'];
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['prenom'];
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['telephone'];
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['email'];
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['adresse'];
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['role'];
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['login'];
+                echo ("</td>");
+                echo ("</td>");
+                echo ("<td>");
+                echo $rows['password'];
+                echo ("</td>");
+
+?>
+
+                              <td class="td-actions text-right">
+                              <a rel="tooltip" title="Modifier" class="btn btn-white btn-link btn-sm" <?php echo("href=../../Views/modifierutilisateur.php?id=" .$rows['id']." ") ?> >
+                              <i class="material-icons">edit</i>
+            </a>
+
+
+                              <a rel="tooltip" title="Supprimer" class="btn btn-white btn-link btn-sm" <?php echo("href=../../Views/supprimerutilisateur.php?id=" .$rows['id']." ") ?> >
+                                <i class="fa fa-trash"></i>
+            </a>
+                            </td>
+
+                            </tr>
+                      <?php  }?>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
+            </div>
+  
             </div>
           </div>
         </div>
@@ -285,7 +318,8 @@
           </nav>
           <div class="copyright float-right" id="date">
             , made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            <a href="https://www.creative-tim.com" target="_blank">Taches
+          </a> for a better web.
           </div>
         </div>
       </footer>

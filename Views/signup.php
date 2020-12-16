@@ -20,30 +20,26 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 
         );
         $utilisateurC->ajouterUtilisateur($utilisateur);
-        //envoi d'un mail d'inscription valide
 
 
-        /* function sanitize_my_email($field) {
-            $field = filter_var($field, FILTER_SANITIZE_EMAIL);
-            if (filter_var($field, FILTER_VALIDATE_EMAIL )) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-*/
+
+
         $to_email = $_POST['email'];
         $subject = 'Testing PHP Mail';
         $message = 'This mail is sent using the PHP mail Inscription valide';
-        $headers = 'marwa.ayari97@gmail.com ';
+        $headers = 'marwa.ayari97@gmail.com';
         //check if the email address is invalid $secure_check
-        $secure_check = false; //sanitize_my_email($to_email);
-        if ($secure_check == false) {
-            echo "adresse email invalide";
-        } else { //send email 
-            mail($to_email, $subject, $message, $headers);
-            echo ('<script> alert("Nous vous avons envoyer un mail"); </script>');
+        try {
+            if (mail($to_email, $subject, $message, $headers)) {
+                echo ('<script> alert("Nous vous avons envoyer un mail"); </script>');
+            } else {
+                echo ('<script> alert("Erreur du mail"); </script>');
+            }
+        } catch (Exception $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
+
+
 
 
 
@@ -67,6 +63,7 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/logob.jpg">
 
     <!-- Site Metas -->
     <title>Dar Mima Inscription</title>
@@ -117,11 +114,11 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 <body class="login-img3-body">
     <!-- Start header -->
     <div class="about-section-box">
-            <div class="col-lg-6 col-md-6 col-sm-12 ">
-                <div class="inner-column">
-                    <h1 style="color:   #61e9f4;">Bienvenue fi Dar mimaa</h1>
-                </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 ">
+            <div class="inner-column">
+                <h1 style="color:   #61e9f4;">Bienvenue fi Dar mimaa</h1>
             </div>
+        </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">

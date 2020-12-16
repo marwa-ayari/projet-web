@@ -14,12 +14,31 @@ if (
         !empty($_POST["pass"])
     ) {
         $message = $userC->connexionUser($_POST["login"], $_POST["pass"]);
-        $_SESSION['e'] = $_POST["login"]; // on stocke dans le tableau une colonne ayant comme nom "e",
-        //  avec l'email à l'intérieur
+        $_SESSION['e'] = $_POST["login"];
         if ($message != 'le login ou le mot de passe est incorrect') {
 
+        
+        // on stocke dans le tableau une colonne ayant comme nom "e",
+        //  avec l'email à l'intérieur
+        /*
+
+            $to_email ='marwa.ayari97@gmail.com';
+            $subject = 'Testing PHP Mail';
+            $message = 'This mail is sent using the PHP mail Inscription valide';
+            $headers = 'marwa.ayari97@gmail.com';
+            //check if the email address is invalid $secure_check
+            try {
+                if(mail($to_email, $subject, $message, $headers)){
+                    echo ('<script> alert("Nous vous avons envoyer un mail"); </script>');
+                }else{
+                    echo('<script> alert("Erreur"); </script>');
+                }
+            } catch (Exception $e) {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            }
 
 
+*/
             header('Location:../Views/index.php');
         } else {
             $message = 'le login ou le mot de passe est incorrect';
@@ -41,6 +60,7 @@ if (
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/logob.jpg">
 
     <!-- Site Metas -->
     <title>Dar Mima Connexion</title>

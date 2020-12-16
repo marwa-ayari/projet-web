@@ -33,6 +33,7 @@ if (isset($_POST['update'])) {
 
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/logob.jpg">
 
   <!-- Site Metas -->
   <title>Dar Mima Modifier compte</title>
