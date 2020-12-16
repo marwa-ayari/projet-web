@@ -22,10 +22,10 @@ if (
         //  avec l'email à l'intérieur
         /*
 
-            $to_email ='marwa.ayari97@gmail.com';
+            $to_email ='darmima18@gmail.com';
             $subject = 'Testing PHP Mail';
             $message = 'This mail is sent using the PHP mail Inscription valide';
-            $headers = 'marwa.ayari97@gmail.com';
+            $headers = 'darmima18@gmail.com';
             //check if the email address is invalid $secure_check
             try {
                 if(mail($to_email, $subject, $message, $headers)){

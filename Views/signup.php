@@ -25,8 +25,8 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 
 
         $to_email = $_POST['email'];
-        $subject = 'Testing PHP Mail';
-        $message = 'This mail is sent using the PHP mail Inscription valide';
+        $subject = 'Inscription Fi Dar Mima';
+        $message = 'Bienvenue vous etes inscrit dans notre site';
         $headers = 'marwa.ayari97@gmail.com';
         //check if the email address is invalid $secure_check
         try {
