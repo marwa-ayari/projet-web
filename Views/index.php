@@ -7,17 +7,6 @@ if (empty($_SESSION['e'])) {
 	header('Location: signin.php');
 }
 
-/*$dest = "marwa.ayari97@gmail.com";
-  $sujet = "Email de test";
-  $corp = "Salut ceci est un email de test envoyer par un script PHP";
-  $headers = "From: marwa.ayari97@gmail.com";
-  if (mail($dest, $sujet, $corp, $headers)) {
-    echo "Email envoyé avec succès à $dest ...";
-  } else {
-    echo "Échec de l'envoi de l'email...";
-  }
-   // echo ('<script> alert("Nous vous avons envoyer un mail"); </script>');*/
-
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +81,7 @@ if (empty($_SESSION['e'])) {
 								<a class="dropdown-item" href="../Views/deconnexion.php">Déconnexion</a> </div>
 						</li>
 
-					<!--<li class="nav-item"><a class="nav-link" href="../Views/deconnexion.php">Déconnexion</a></li> -->
+						<!--<li class="nav-item"><a class="nav-link" href="../Views/deconnexion.php">Déconnexion</a></li> -->
 
 					</ul>
 				</div>
@@ -109,10 +98,7 @@ if (empty($_SESSION['e'])) {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Bienvenue Fi <br> Dar Mima <br> <?php echo($_SESSION['e']); ?> </strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view <br>
-								trends to see any changes in performance over time.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="reservation.php">Reservation</a></p>
+							<h1 class="m-b-20"><strong>Bienvenue Fi <br> Dar Mima <br> <?php echo ($_SESSION['e']); ?> </strong></h1>
 						</div>
 					</div>
 				</div>
@@ -122,11 +108,7 @@ if (empty($_SESSION['e'])) {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-						<h1 class="m-b-20"><strong>Bienvenue Fi <br> Dar Mima <br> <?php echo($_SESSION['e']); ?> </strong></h1>
-
-							<p class="m-b-40">See how your users experience your website in realtime or view <br>
-								trends to see any changes in performance over time.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+							<h1 class="m-b-20"><strong>Bienvenue Fi <br> Dar Mima <br> <?php echo ($_SESSION['e']); ?> </strong></h1>
 						</div>
 					</div>
 				</div>
@@ -136,10 +118,7 @@ if (empty($_SESSION['e'])) {
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-						<h1 class="m-b-20"><strong>Bienvenue Fi <br> Dar Mima <br> <?php echo($_SESSION['e']); ?> </strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view <br>
-								trends to see any changes in performance over time.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a></p>
+							<h1 class="m-b-20"><strong>Bienvenue Fi <br> Dar Mima <br> <?php echo ($_SESSION['e']); ?> </strong></h1>
 						</div>
 					</div>
 				</div>
@@ -153,6 +132,8 @@ if (empty($_SESSION['e'])) {
 	<!-- End slides -->
 
 	<!-- Start About -->
+
+	<form action="index.php" method="POST">
 	<div class="about-section-box">
 		<div class="container">
 			<div class="row">
@@ -167,16 +148,28 @@ if (empty($_SESSION['e'])) {
 								echo ('<script> alert("Bienvenue, voici notre page d accueil"); </script>');
 								?>
 						</h1>
-						<h1>Welcome To Dar mimaa</h1>
-						<h4>Little Story</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-						<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. Sed aliquam metus lorem, a pellentesque tellus pretium a. Nulla placerat elit in justo vestibulum, et maximus sem pulvinar.</p>
-						<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a>
+						<h1>Fi Dar mimaa</h1>
+						<p>Choisissez la spécialité de vos plats préférés</p>
+						<div class="input-group">
+							<div>
+								<select class="form-control" id="sp" name="sp" onClick="specialite()" >
+									<option value="select">------------------------------------select--------------------------------------</option>
+									<option value="kaftaji">Kaftaji</option>
+									<option value="Brik">Brik</option>
+									<option value="Couscous">Couscous</option>
+
+								</select>
+							</div>
+						</div>
+						<label id="elementsp" name="erreur" style="color: red;display: none;">Veuillez choisir une spécialité </label>
+
+						<a class="btn btn-lg btn-circle btn-outline-new-white" type="submit" name="submit" value="Voir les Restaurants"onClick="validation()">Voir les Restaurants</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</form>
 	<!-- End About -->
 
 	<!-- Start QT -->
@@ -471,6 +464,27 @@ if (empty($_SESSION['e'])) {
 	<script src="js/form-validator.min.js"></script>
 	<script src="js/contact-form-script.js"></script>
 	<script src="js/custom.js"></script>
+
+	<script>
+		function specialite() {
+			var sp = document.getElementById("sp").value;
+			var element = document.getElementById("elementsp");
+			if (sp === "select") {
+				element.style.display = "block";
+			} else {
+				element.style.display = "none";
+			}
+		}
+		function validation() {
+			var element = document.getElementById("elementsp");
+			var sp = document.getElementById("sp").value;
+
+			if ((element.style.display === "none")&&(sp!=="select")) {
+				window.location.href="reservation.php" ;
+			} 
+		}
+	</script>
+
 </body>
 
 </html>
