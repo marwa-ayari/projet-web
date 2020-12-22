@@ -17,10 +17,10 @@ if (
         $_SESSION['e'] = $_POST["login"];
         if ($message != 'le login ou le mot de passe est incorrect') {
 
-        
+
         // on stocke dans le tableau une colonne ayant comme nom "e",
         //  avec l'email à l'intérieur
-        /*
+        
 
             $to_email ='darmima18@gmail.com';
             $subject = 'Testing PHP Mail';
@@ -38,7 +38,7 @@ if (
             }
 
 
-*/
+
             header('Location:../Views/index.php');
         } else {
             $message = 'le login ou le mot de passe est incorrect';

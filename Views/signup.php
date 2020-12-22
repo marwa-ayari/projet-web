@@ -4,7 +4,7 @@ include_once '../Controller/UtilisateurC.php';
 $error = "";
 $utilisateur = null;
 $utilisateurC = new UtilisateurC();
-
+        
 if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["telephone"]) && isset($_POST["email"]) && isset($_POST["adresse"]) && isset($_POST["login"]) && isset($_POST["pass"]) && isset($_POST["role"])) {
     if ($utilisateurC->unique_log($_POST["login"]) == false) {
         $utilisateur = new Utilisateur(
@@ -27,7 +27,7 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
         $to_email = $_POST['email'];
         $subject = 'Inscription Fi Dar Mima';
         $message = 'Bienvenue vous etes inscrit dans notre site';
-        $headers = 'marwa.ayari97@gmail.com';
+        $headers = 'darmima18@gmail.com';
         //check if the email address is invalid $secure_check
         try {
             if (mail($to_email, $subject, $message, $headers)) {
@@ -248,7 +248,7 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 
         function telephonefc() {
             var element = document.getElementById("element2");
-            if (Number(document.getElementById("telephone").value) < 10000000) {
+            if ((Number(document.getElementById("telephone").value) < 10000000)||(Number(document.getElementById("telephone").value) >99999999)) {
                 element.style.display = "block";
             } else {
                 element.style.display = "none";
@@ -257,7 +257,7 @@ if (isset($_POST["CIN"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && i
 
         function cinfc() {
             var element = document.getElementById("elementcin");
-            if (Number(document.getElementById("CIN").value) < 10000000) {
+            if ((Number(document.getElementById("CIN").value) < 10000000)||(Number(document.getElementById("CIN").value) >99999999)) {
                 element.style.display = "block";
             } else {
                 element.style.display = "none";
