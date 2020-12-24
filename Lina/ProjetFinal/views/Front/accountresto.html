@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+     <!-- Site Metas -->
+    <title>Yamifood Restaurant - Responsive HTML5 Template</title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">   
+	<!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<img src="images/logo2.jpg" alt="" height="170" width="	250">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-rs-food">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="reservation.html">Reservation</a>
+								<a class="dropdown-item" href="stuff.html">Stuff</a>							</div>
+						</li>
+						
+						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+    </header>
+    <!-- End header -->
+    <div class="all-page-title page-breadcrumb">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-lg-12">
+                    <h1>Rejoignez nous</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+   
+       <!--Formulaire-->
+        <body>
+        
+        <form name="CompteRes" action="/action_page.php" style="border:1px solid #ccc">
+          <div class="container">
+            <h1>Inscrivez-vous</h1>
+            <p>Remplissez ce formulaire pour faire un compte .</p>
+            <hr>
+            <label for="resto"><b>Le Nom De Votre Restaurant</b></label>
+            <input type="text" placeholder="Entrer Votre Nom " name="text" required>
+            
+            <label for="adresse"><b>Adresse</b></label>
+            <input type="text" placeholder="Entrer Votre Adresse" name="text" required>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Entrer Votre Email" name="email" required>
+        
+            <label for="psw"><b>Mot de Passe</b></label>
+            <input type="password" placeholder="Entrer Votre Mot De Passe" name="psw" required>
+        
+            <label for="psw-repeat"><b>Vérifier votre Mot de Passe</b></label>
+            <input type="password" placeholder="Entrer Votre Mot De Passe" name="psw-repeat" required>
+
+            <label for="specialite"><b>Votre Spécialité</b></label>
+            <input type="text" placeholder="Entrer Votre Spécialité" name="text" required>
+             
+            <label for="num"><b>Numéro de Téléphone</b></label>
+            <input type="number" placeholder="Entrer Numéro" name="numero" required>
+
+            <label>
+              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Se Rappeler de moi
+            </label>
+            
+            <p>En créant un compte, vous acceptez nos  <a href="#" style="color:dodgerblue">conditions & confidentialité</a>.</p>
+        
+            <div class="clearfix">
+              <button type="button" class="cancelbtn">Cancel</button>
+              <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+          </div>
+        </form>  
+        <script>
+            function verif ()
+{
+    var errors="<ul>";
+  var resto = document.querySelector("#resto").value;
+  var psw= document.querySelector("#psw").value;
+  var psw-repeat = document.querySelector("#psw-repeat").value;
+  var num = document.querySelector("#num").value;
+  
+if (resto.charAt(0) < "A" || resto.charAt(0) > "Z") {
+    errors += "<li>Le nom doit commencer par une lettre Majuscule </li>";
+  }
+  if (psw !== psw-repeat || psw === "" || psw-repeat === "") {
+    errors += "<li> Veuillez vérifier le mot de passe saisi </li>";
+    document.querySelector("#psw").value = "";
+    document.querySelector("#psw-repeat").value = "";
+    document.querySelector("#psw").focus();
+  }
+  if (num.substring(0, 1) != "7" || num.length != 8) {
+    errors += "<li>Numéro de téléphone erroné </li>";
+  }
+  if (errors !== "<ul>") {
+    document.querySelector("#erreur").style.color = "red";
+    errors += "</ul>";
+    document.getElementById("erreur").innerHTML = errors;
+    return false;
+  } else {
+    var msg = "Bienvenue " + nom + " " + prenom + ".\n Vos préférences: " + p;
+    alert(msg);
+  } }
+        </script>  
+       
+
+        
+    <!-- ALL JS FILES -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+	<script src="js/jquery.superslides.min.js"></script>
+	<script src="js/images-loded.min.js"></script>
+	<script src="js/isotope.min.js"></script>
+	<script src="js/baguetteBox.min.js"></script>
+	<script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/accountresto.js"></script>
+    </html>
