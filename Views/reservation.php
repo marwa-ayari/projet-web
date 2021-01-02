@@ -53,8 +53,8 @@
 
 						<li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
-						<li class="nav-item active"><a class="nav-link" href="about.php">About</a></li>
-						<li class="nav-item dropdown">
+						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+						<li class="nav-item  active dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown-a">
 								<a class="dropdown-item" href="reservation.php">Reservation</a>
@@ -63,8 +63,12 @@
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-						<li class="nav-item"><a class="nav-link" href="../Views/deconnexion.php">Déconnexion</a></li>
-
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Paramètres</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="modifiermoncompte.php">Modifier mon compte</a>
+								<a class="dropdown-item" href="../Views/deconnexion.php">Déconnexion</a> </div>
+						</li>
 					</ul>
 				</div>
 			</div>
