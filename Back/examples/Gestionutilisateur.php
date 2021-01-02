@@ -1,7 +1,7 @@
 <?php
-include_once '../../config.php' ;
+include_once "../../config.php" ;
 include_once '../../Model/Utilisateur.php';
-    include_once '../../Controller/UtilisateurC.php';
+include_once '../../Controller/UtilisateurC.php';
     $utilisateurC = new UtilisateurC();
     try{
       $pdo=config::getConnexion();
